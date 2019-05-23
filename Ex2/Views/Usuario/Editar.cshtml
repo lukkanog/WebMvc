@@ -1,0 +1,27 @@
+@using Ex2.Models;
+
+@{
+    Layout = "MasterPage";
+    ViewBag.Title = "Editar usuário";
+    UsuarioModel usuario = ViewBag.Usuario;
+    string dataDeNascimento = usuario.DataNascimento.ToString("yyyy-MM-dd");
+}
+<h1>@ViewBag.Title</h1>
+
+<form action="/Usuario/Editar" method ="POST">
+    <input type="hidden" value="@usuario.Id" name="id">
+    
+    <label for="nome">Nome</label>
+    <input type="text" value="@usuario.Nome" name="nome">
+
+    <label for="email">Email</label>
+    <input type="text" value="@usuario.Email" name ="email">
+
+    <label for="senha">Senha</label>
+    <input type="text" value="@usuario.Senha" name ="senha">
+
+    <label for="datanascimento">Data de Nascimento</label>
+    <input type="date" value="@dataDeNascimento" name ="datanascimento">
+
+    <input type="submit" value="Editar">
+</form>
