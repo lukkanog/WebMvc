@@ -1,3 +1,13 @@
+<head>
+    <link rel="stylesheet" href="~/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/css/style-pedidos-flex.css" rel="stylesheet" type="text/css">
+</head>
+<header>
+    @{
+        Html.RenderPartial("_HeaderNavBar");
+    }
+</header>
 <main>
-    <h2><b>Operação efetuada com sucesso!</b></h2>
+    <h2><b>@ViewData["Controller"] efetuado com sucesso!</b></h2>
+    <h3>Valor do seu pedido: R$@ViewData["precoTotal"]</h3>
 </main>

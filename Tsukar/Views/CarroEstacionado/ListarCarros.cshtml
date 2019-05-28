@@ -1,0 +1,13 @@
+<main>
+    <h2>Carros Estacionados</h2>
+
+    @foreach (var carro in ViewData["Carros"] as List<CarroEstacionado>)
+    {
+            <h3>Nome do condutor: @carro.NomeCondutor</h3>
+            <p><b>Placa:</b> @carro.Placa</p>
+            <p><b>Modelo:</b> @carro.Modelo.Nome</p>
+            <p><b>Marca:</b> @carro.Marca.Nome</p>   
+            <p><b>Data de entrada:</b> @carro.DataEntrada</p>
+            <br>
+    }
+</main>

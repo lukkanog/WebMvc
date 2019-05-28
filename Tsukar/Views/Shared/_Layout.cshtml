@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>TsuCar</title>
+</head>
+<body>
+    <header>
+        <h1>TsuCar</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a asp-controller="Home" asp-action="Index" class="active">Home</a>
+                    <a asp-controller="CarroEstacionado" asp-action="Index">Estacionar Carro</a>
+                    <a asp-controller="CarroEstacionado" asp-action="ListarCarros">Listar carros estacionados</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    @RenderBody()
+
+</body>
+</html>

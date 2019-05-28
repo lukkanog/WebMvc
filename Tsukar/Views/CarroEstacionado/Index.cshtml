@@ -1,0 +1,28 @@
+<main>
+    <form method="POST" action="CarroEstacionado/RegistrarCarro">
+        <label for="nomeCondutor">Nome do condutor</label>
+        <input type="text" name="nomeCondutor" id ="nomeCondutor" maxlength="50" minlength="2" required>
+
+        <label for="placa">Placa</label>
+        <input type="text" name="placa" id="placa" maxlength="8" minlength="7" required>
+
+        <label for="modelo">Modelo do carro</label>
+        <select id="modelo" name="modelo">
+            <option value="" disabled selected>Selecione</option>
+            @foreach (var modelo in @ViewData["modelos"] as List<Modelo>)
+            {
+                <option value=@modelo.Nome>@modelo.Nome</option>
+            }
+        </select>
+
+        <label for="marca">Marca do carro</label>
+        <select id="marca" name="marca">
+            <option value="" disabled selected>Selecione</option>
+            @foreach (var marca in @ViewData["marcas"] as List<Marca>)
+            {
+                <option value=@marca.Nome>@marca.Nome</option>
+            }
+        </select>
+        <input type="submit" value="Estacionar carro">
+    </form>    
+</main>

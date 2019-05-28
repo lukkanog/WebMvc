@@ -54,7 +54,7 @@ namespace Ex2.Controllers
                 TempData["mensagem"] = $"Deu ruim cz, usuário nao encontrado";
                 return RedirectToAction("Listar");
             }
-
+            
             return View();
 
         }//Editar()

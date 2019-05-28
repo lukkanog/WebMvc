@@ -11506,11 +11506,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\46735197879\\Desktop\\lucas\\mvc_web\\Hamburgueria\\Hamburgueria.csproj",
+      "projectUniqueName": "C:\\Users\\46735197879\\Desktop\\lucas\\WebMvc\\Hamburgueria\\Hamburgueria.csproj",
       "projectName": "Hamburgueria",
-      "projectPath": "C:\\Users\\46735197879\\Desktop\\lucas\\mvc_web\\Hamburgueria\\Hamburgueria.csproj",
+      "projectPath": "C:\\Users\\46735197879\\Desktop\\lucas\\WebMvc\\Hamburgueria\\Hamburgueria.csproj",
       "packagesPath": "C:\\Users\\46735197879\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\46735197879\\Desktop\\lucas\\mvc_web\\Hamburgueria\\obj\\",
+      "outputPath": "C:\\Users\\46735197879\\Desktop\\lucas\\WebMvc\\Hamburgueria\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
