@@ -1,13 +1,38 @@
 <main>
     <h2>Carros Estacionados</h2>
 
-    @foreach (var carro in ViewData["Carros"] as List<CarroEstacionado>)
-    {
-            <h3>Nome do condutor: @carro.NomeCondutor</h3>
-            <p><b>Placa:</b> @carro.Placa</p>
-            <p><b>Modelo:</b> @carro.Modelo.Nome</p>
-            <p><b>Marca:</b> @carro.Marca.Nome</p>   
-            <p><b>Data de entrada:</b> @carro.DataEntrada</p>
-            <br>
-    }
+    <table id="tabela">
+        <thead>
+            <tr>
+                <th>Placa</th>
+                <th>Condutor</th>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Data e horario de entrada</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var carro in @ViewData["Carros"] as List<CarroEstacionado>)
+            {
+                @if(carro == null)
+                {
+                    continue;
+                } else if (carro.DataEntrada.ToShortDateString().Equals(DateTime.Today.ToShortDateString()))
+                {
+
+                <tr>
+                    <td>@carro.Placa</td>
+                    <td>@carro.NomeCondutor</td>
+                    <td>@carro.Modelo.Nome</td>
+                    <td>@carro.Marca.Nome</td>
+                    <td>@carro.DataEntrada</td>
+                    <td>
+                        <a href="/CarroEstacionado/Excluir?placa=@carro.Placa">Retirar do estacionamento</a>
+                        <!-- <a asp-controller="CarroEstacionado" asp-action="Excluir?placa=@carro.Placa">Retirar do estacionamento</a> -->
+                    </td>
+                </tr>
+                }
+            }
+        </tbody>
+</table>
 </main>

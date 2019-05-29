@@ -63,12 +63,12 @@ using Tsukar.Models;
             WriteLiteral("<!DOCTYPE html>\r\n<html lang=\"pt-br\">\r\n");
             EndContext();
             BeginContext(38, 257, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0dbb6e7e27dc4fb09a57a9aa018f2692", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c90ea62ee5949d0a1fb4643d895e5c3", async() => {
                 BeginContext(44, 169, true);
                 WriteLiteral("\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    ");
                 EndContext();
                 BeginContext(213, 46, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a53e57729b6546b7a46305a2854a1278", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "795c135fbdd64f4cb9f63e7c7c1dc3e6", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -102,12 +102,12 @@ using Tsukar.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(297, 505, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "72955bc47e2e483ab0a22a533cc883ee", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b163d1de3b5b4d8ea7c54953c056de77", async() => {
                 BeginContext(303, 116, true);
                 WriteLiteral("\r\n    <header>\r\n        <h1>TsuCar</h1>\r\n        <nav>\r\n            <ul>\r\n                <li>\r\n                    ");
                 EndContext();
                 BeginContext(419, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e9c26f7aa1eb4413b54d214871bb5f72", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4152b428fda542a180717c78b4d6e46e", async() => {
                     BeginContext(478, 4, true);
                     WriteLiteral("Home");
                     EndContext();
@@ -132,7 +132,7 @@ using Tsukar.Models;
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(508, 76, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5e055323c3a94e5a9e80e1ee1044203c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "16a4e420d638481e8f4d2b8d4a3cafcc", async() => {
                     BeginContext(564, 16, true);
                     WriteLiteral("Estacionar Carro");
                     EndContext();
@@ -156,7 +156,7 @@ using Tsukar.Models;
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(606, 93, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ecdd816fb91497cb3d342c821fa9e95", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d4c7c8417a77460fb2d9e1d0d60acba6", async() => {
                     BeginContext(669, 26, true);
                     WriteLiteral("Listar carros estacionados");
                     EndContext();

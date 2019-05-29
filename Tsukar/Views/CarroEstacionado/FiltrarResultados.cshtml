@@ -1,0 +1,24 @@
+<main>
+    <div class="flex-me">
+        <h3>Filtrar Resultados</h3>
+        <form method="POST" action="CarroEstacionado/FiltrarResultados">
+            <label for="modelo">Filtrar por modelo</label>
+            <select id="modelo" name="modelo">
+                <option value="" disabled selected>Selecione</option>
+
+                @foreach (var modelo in @ViewData["modelos"] as List<Modelo>)
+                {
+                    <option value=@modelo.Nome>@modelo.Nome</option>
+                }
+            </select>
+
+            <label for="data">Filtrar por Data</label>
+            <input type="date" id="data" value="data">
+
+            <input type="submit" value="Filtrar">
+
+
+        </form>
+
+    </div>
+</main>

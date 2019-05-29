@@ -1,4 +1,8 @@
 <main>
+
+    <h2>Estacionar Carro</h2>
+    <h3><b>@ViewData["mensagem"]</b></h3>
+
     <form method="POST" action="CarroEstacionado/RegistrarCarro">
         <label for="nomeCondutor">Nome do condutor</label>
         <input type="text" name="nomeCondutor" id ="nomeCondutor" maxlength="50" minlength="2" required>
@@ -7,7 +11,7 @@
         <input type="text" name="placa" id="placa" maxlength="8" minlength="7" required>
 
         <label for="modelo">Modelo do carro</label>
-        <select id="modelo" name="modelo">
+        <select id="modelo" name="modelo" required>
             <option value="" disabled selected>Selecione</option>
             @foreach (var modelo in @ViewData["modelos"] as List<Modelo>)
             {
@@ -16,7 +20,7 @@
         </select>
 
         <label for="marca">Marca do carro</label>
-        <select id="marca" name="marca">
+        <select id="marca" name="marca" required>
             <option value="" disabled selected>Selecione</option>
             @foreach (var marca in @ViewData["marcas"] as List<Marca>)
             {

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tsukar.Models;
@@ -12,6 +13,7 @@ namespace Tsukar.Controllers
         CarroEstacionadoRepositorio carroRepositorio = new CarroEstacionadoRepositorio();
         ModeloRepositorio modeloRepositorio = new ModeloRepositorio();
         MarcaRepositorio marcaRepositorio = new MarcaRepositorio();
+        
 
         [HttpGet]
         public IActionResult Index()
@@ -52,11 +54,40 @@ namespace Tsukar.Controllers
             return RedirectToAction("Index");
         }
 
+
+        // [HttpPost]
+        // public IActionResult FiltrarResultados(IFormCollection form)
+        // {
+        //     var listaFiltrada = carroRepositorio.Filtrar(
+        //         DateTime.Parse(form["data"]),
+        //         form["modelo"]
+        //     );
+        //     ViewData["Carros"] = listaFiltrada;
+        //     this.listaCarros = listaFiltrada;
+        //     return RedirectToAction("ListarCarros");
+        // }
+
         [HttpGet]
-        public IActionResult ListarCarros()
+        public IActionResult ListarCarros(List<CarroEstacionado> listaDeCarros)
         {
-            @ViewData["Carros"] = carroRepositorio.Listar();
+            // var listaDeCarros = carroRepositorio.Listar();
+            if (listaDeCarros.Count == 0)
+            {
+                ViewData["mensagem"] = "Não há carros estacionados no TsuCar no momento.";
+                return RedirectToAction("Index");
+            }
+            ViewData["Carros"] = listaDeCarros;
+            @ViewData["modelos"] = modeloRepositorio.Listar();
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Excluir(string placa)
+        {
+            CarroEstacionadoRepositorio carroRepositorio = new CarroEstacionadoRepositorio();
+            carroRepositorio.Excluir(placa);
+
+            return RedirectToAction("ListarCarros");
         }
     }
 }

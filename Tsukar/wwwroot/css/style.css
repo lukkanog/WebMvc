@@ -2,19 +2,50 @@
     margin:0;
     padding:0;
 }
+header{
+    display:flex;
+    justify-content: space-evenly;
+}
 
+nav ul{
+    list-style-type: none;
+    display:flex;
+}
+
+nav ul li{
+    padding:2em;
+}
+nav a{
+    text-decoration:none;
+    font-size:1.5em;
+    color:#d6ee4e;
+}
 main{
     background-image: url(../images/fundo-banner.jpeg);
     background-size: cover;
+    background-position:center;
     background-repeat: no-repeat;
     height:100vh;
     width:100%;
 }
 
+main img{
+    filter: blur(200000px);
+}
+
 header{
-    background-color:#f2a;
+    background-color:#e96ab4;
 }
 
 header h1{
     color:#fff;
 }
+
+#tabela{
+    background-color:#ccc;
+    border:0.2em solid #000;
+}
+#tabela tr{
+    border:0.1em solid #000;
+}
+
