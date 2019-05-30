@@ -68,7 +68,7 @@ namespace Tsukar.Repositorios
             
             foreach (var item in listaDeCarros)
             {
-                if (item.DataEntrada == data)
+                if (item.DataEntrada.ToShortDateString() == data.ToShortDateString())
                 {
                     listaFiltrada.Add(item);
                 } else
@@ -106,7 +106,7 @@ namespace Tsukar.Repositorios
             
             foreach (var item in listaDeCarros)
             {
-                if (item.DataEntrada == data && item.Modelo.Nome.Equals(modelo))
+                if (item.DataEntrada.ToShortDateString() == data.ToShortDateString() && item.Modelo.Nome.Equals(modelo))
                 {
                     listaFiltrada.Add(item);
                 } else

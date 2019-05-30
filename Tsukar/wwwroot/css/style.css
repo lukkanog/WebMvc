@@ -41,11 +41,11 @@ header h1{
     color:#fff;
 }
 
-#tabela{
+.tabela{
     background-color:#ccc;
     border:0.2em solid #000;
 }
-#tabela tr{
-    border:0.1em solid #000;
+.tabela tr{
+    border:60px solid #000;
 }
 

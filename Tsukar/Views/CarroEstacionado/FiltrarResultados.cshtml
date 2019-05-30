@@ -1,24 +1,55 @@
 <main>
-    <div class="flex-me">
-        <h3>Filtrar Resultados</h3>
-        <form method="POST" action="CarroEstacionado/FiltrarResultados">
-            <label for="modelo">Filtrar por modelo</label>
-            <select id="modelo" name="modelo">
-                <option value="" disabled selected>Selecione</option>
-
-                @foreach (var modelo in @ViewData["modelos"] as List<Modelo>)
+    <h2>Carros Estacionados</h2>
+    <table class="tabela">
+        <thead>
+            <tr>
+                <th>Placa</th>
+                <th>Condutor</th>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Data e horario de entrada</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var carro in @ViewData["Carros"] as List<CarroEstacionado>)
+            {
+                @if(carro == null)
                 {
-                    <option value=@modelo.Nome>@modelo.Nome</option>
+                    continue;
                 }
-            </select>
 
-            <label for="data">Filtrar por Data</label>
-            <input type="date" id="data" value="data">
+                <tr>
+                    <td>@carro.Placa</td>
+                    <td>@carro.NomeCondutor</td>
+                    <td>@carro.Modelo.Nome</td>
+                    <td>@carro.Marca.Nome</td>
+                    <td>@carro.DataEntrada</td>
+                    <td>
+                        <a href="/CarroEstacionado/Excluir?placa=@carro.Placa">Retirar do estacionamento</a>
+                        <!-- <a asp-controller="CarroEstacionado" asp-action="Excluir?placa=@carro.Placa">Retirar do estacionamento</a> -->
+                    </td>
+                </tr>   
+            }
+        </tbody>
+    </table>
+        <div class="flex-me">
+            <h3>Filtrar Resultados</h3>
+            <form method="POST" action="/CarroEstacionado/FiltrarResultados">
+                <label for="modelo">Filtrar por modelo</label>
+                <select id="modelo" name="modelo">
+                    <option value="" disabled selected>Selecione</option>
 
-            <input type="submit" value="Filtrar">
+                    @foreach (var modelo in @ViewData["modelos"] as List<Modelo>)
+                    {
+                        <option value=@modelo.Nome>@modelo.Nome</option>
+                    }
+                </select>
 
+                <label for="data">Filtrar por Data</label>
+                <input type="date" id="data"  name="data">
 
-        </form>
+                <input type="submit" value="Filtrar">
+            </form>
 
     </div>
 </main>

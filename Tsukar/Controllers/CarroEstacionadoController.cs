@@ -55,22 +55,39 @@ namespace Tsukar.Controllers
         }
 
 
-        // [HttpPost]
-        // public IActionResult FiltrarResultados(IFormCollection form)
-        // {
-        //     var listaFiltrada = carroRepositorio.Filtrar(
-        //         DateTime.Parse(form["data"]),
-        //         form["modelo"]
-        //     );
-        //     ViewData["Carros"] = listaFiltrada;
-        //     this.listaCarros = listaFiltrada;
-        //     return RedirectToAction("ListarCarros");
-        // }
+        [HttpPost]
+        public IActionResult FiltrarResultados(IFormCollection form)
+        {
+            List<CarroEstacionado> listaFiltrada;
+
+            string modelo = form["modelo"];
+            string dataForm = form["data"];
+
+            DateTime data;
+
+            if (string.IsNullOrEmpty(modelo))
+            {
+                data = DateTime.Parse(form["data"]);
+                listaFiltrada = carroRepositorio.Filtrar(data);
+
+            } else if (string.IsNullOrEmpty(dataForm))
+            {
+                listaFiltrada = carroRepositorio.Filtrar(modelo);
+            } else
+            {
+                data = DateTime.Parse(dataForm);
+                listaFiltrada = carroRepositorio.Filtrar(data,modelo);
+            }
+
+            ViewData["Carros"] = listaFiltrada;
+            ViewData["modelos"] = modeloRepositorio.Listar();
+            return View();
+        }
 
         [HttpGet]
-        public IActionResult ListarCarros(List<CarroEstacionado> listaDeCarros)
+        public IActionResult ListarCarros()
         {
-            // var listaDeCarros = carroRepositorio.Listar();
+            var listaDeCarros = carroRepositorio.Listar();
             if (listaDeCarros.Count == 0)
             {
                 ViewData["mensagem"] = "Não há carros estacionados no TsuCar no momento.";
