@@ -32,7 +32,7 @@ namespace Tsukar
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);//////////////////////////////////////////////---------/
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,7 +49,7 @@ namespace Tsukar
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles();///////////////////////////////////////////////////////pra usar o wwwroot
             app.UseCookiePolicy();
 
             app.UseMvc(routes =>
@@ -57,7 +57,7 @@ namespace Tsukar
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            });//////////////////////////////////////////////////////////////
         }
     }
 }

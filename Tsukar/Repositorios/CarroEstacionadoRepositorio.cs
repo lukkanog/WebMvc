@@ -7,9 +7,18 @@ namespace Tsukar.Repositorios
 {
     public class CarroEstacionadoRepositorio
     {
-        private string PATH = "DataBase/CarrosEstacionados.csv";
+        private const string PATH = "DataBase/CarrosEstacionados.csv";
+        //O CONST DIZ Q ESSA STRING NAO É UMA VARIAVEL, SEU VALOR É SEMPRE O MEMO(CONSTANTE)
         public void Inserir(CarroEstacionado carro)
         {
+            // if (!File.Exists(PATH))
+            // {
+            //     carro.Id = 1;
+            // } else
+            // {
+            //     carro.Id = File.ReadAllLines(PATH).Length + 1;
+            // }                                                                         ***** COMENTADO PQ NO MEU N TEM ID FODASE*****
+
             StreamWriter sw = new StreamWriter(PATH,true);
             sw.WriteLine($"{carro.Placa.ToUpper()};{carro.NomeCondutor.ToUpper()};{carro.Modelo.Nome};{carro.Marca.Nome};{carro.DataEntrada}");
             sw.Close();

@@ -6,8 +6,8 @@ namespace Tsukar.Repositorios
 {
     public class MarcaRepositorio
     {
-        private string PATH = "DataBase/Marcas.csv";
-        public List<Marca> Marcas = new List<Marca>();
+        private const string PATH = "DataBase/Marcas.csv";
+        private List<Marca> Marcas = new List<Marca>();
         public List<Marca> Listar()
         {
             string[] marcas = File.ReadAllLines(PATH);

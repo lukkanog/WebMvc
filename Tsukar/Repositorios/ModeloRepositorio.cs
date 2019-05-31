@@ -6,12 +6,11 @@ namespace Tsukar.Repositorios
 {
     public class ModeloRepositorio
     {
-        private string PATH = "DataBase/Modelos.csv";
-        public List<Modelo> Modelos = new List<Modelo>();
+        private const string PATH = "DataBase/Modelos.csv";
+        private List<Modelo> Modelos = new List<Modelo>();
         public List<Modelo> Listar()
         {
             string[] modelos = File.ReadAllLines(PATH);
-
             foreach (var item in modelos)
             {
                 if (item != null)

@@ -24,7 +24,8 @@ namespace Tsukar.Controllers
 
             CarroEstacionadoViewModel carroViewModel = new CarroEstacionadoViewModel();
             carroViewModel.Modelos = modelos;
-            carroViewModel.Marcas = marcas; 
+            carroViewModel.Marcas = marcas;
+             
             @ViewData["modelos"] = modelos;
             @ViewData["marcas"] = marcas;
             return View(carroViewModel);
@@ -65,7 +66,10 @@ namespace Tsukar.Controllers
 
             DateTime data;
 
-            if (string.IsNullOrEmpty(modelo))
+            if (string.IsNullOrEmpty(modelo) && string.IsNullOrEmpty(dataForm))
+            {
+                return RedirectToAction("ListarCarros");
+            }else if (string.IsNullOrEmpty(modelo))
             {
                 data = DateTime.Parse(form["data"]);
                 listaFiltrada = carroRepositorio.Filtrar(data);
@@ -73,7 +77,7 @@ namespace Tsukar.Controllers
             } else if (string.IsNullOrEmpty(dataForm))
             {
                 listaFiltrada = carroRepositorio.Filtrar(modelo);
-            } else
+            }else
             {
                 data = DateTime.Parse(dataForm);
                 listaFiltrada = carroRepositorio.Filtrar(data,modelo);

@@ -168,12 +168,12 @@ WriteAttributeValue("", 900, carro.Placa, 900, 12, false);
             WriteLiteral("        </tbody>\r\n    </table>\r\n        <div class=\"flex-me\">\r\n            <h3>Filtrar Resultados</h3>\r\n            ");
             EndContext();
             BeginContext(1270, 688, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9e34ce91da9340e9977a82667151ab2d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "13bebb19924840628d295746b205925b", async() => {
                 BeginContext(1335, 138, true);
                 WriteLiteral("\r\n                <label for=\"modelo\">Filtrar por modelo</label>\r\n                <select id=\"modelo\" name=\"modelo\">\r\n                    ");
                 EndContext();
                 BeginContext(1473, 53, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "50e7ef1c26ac473f91d20de4d302bce6", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "564123a281ed448e9e116f4199bf6476", async() => {
                     BeginContext(1508, 9, true);
                     WriteLiteral("Selecione");
                     EndContext();
@@ -210,7 +210,7 @@ WriteAttributeValue("", 900, carro.Placa, 900, 12, false);
                 WriteLiteral("                        ");
                 EndContext();
                 BeginContext(1660, 48, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "052de50e4172496a8908b20dd08c28ed", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8f275285acb423aa33901b1ec834762", async() => {
                     BeginContext(1688, 11, false);
 #line 44 "C:\Users\46735197879\Desktop\lucas\WebMvc\Tsukar\Views\CarroEstacionado\FiltrarResultados.cshtml"
                                               Write(modelo.Nome);
