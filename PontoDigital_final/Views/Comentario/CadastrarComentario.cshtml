@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Faça seu comentário | Ponto Digital";
+}
+<main class="container">
+    <div class="content">
+        <h2>Envie seu Comentário</h2>
+        <form action='@Url.Action("CadastrarComentario","Comentario")' method="POST">
+            <div class="campo">
+                <input type="text" name="assunto" placeholder="Assunto" maxlength="50" required>
+            </div>
+            <div class="campo">
+                <input type="textarea" name="mensagem" maxlength="500" id="mensagem" placeholder="Deixe aqui sua mensagem" required>
+            </div>
+            <input type="submit" value="Enviar Mensagem" class="submit">
+        </form>
+    </div>
+</main>
