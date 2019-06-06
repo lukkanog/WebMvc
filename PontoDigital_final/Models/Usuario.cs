@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.Http;
 
 namespace PontoDigital_final.Models
 {
@@ -12,5 +13,9 @@ namespace PontoDigital_final.Models
         public string Telefone {get;set;}
         public Empresa Empresa {get;set;}
         public DateTime DataNascimento {get;set;}
+        public string UrlFoto {get;set;}
+        public IFormFile Foto {get;set;}
+
+        
     }
 }

@@ -7,7 +7,7 @@ namespace PontoDigital_final.Repositories
     public class ComentarioRepository
     {
         private const string PATH = "Database/Comentarios.csv";
-        internal void Inserir(Comentario comentario)
+        public void Inserir(Comentario comentario)
         {
             if (!File.Exists(PATH))
             {
@@ -19,7 +19,7 @@ namespace PontoDigital_final.Repositories
 
             comentario.DataDoComentario = DateTime.Now;
 
-            string linha = $"{comentario.Id};{comentario.DataDoComentario};{comentario.Assunto};{comentario.Mensagem}";
+            string linha = $"{comentario.Id};{comentario.DataDoComentario};{comentario.Assunto};{comentario.Mensagem};{comentario.Autor.Nome};{comentario.Autor.Telefone};{comentario.Autor.Email};{comentario.Autor.Empresa.Nome};{comentario.Autor.Empresa.Cnpj}";
             
             StreamWriter sw = new StreamWriter(PATH,true);
             sw.WriteLine(linha);

@@ -1,10 +1,48 @@
+@model PontoDigital_final.ViewModels.ComentarioViewModel
+
 @{
     ViewData["Title"] = "Faça seu comentário | Ponto Digital";
+    ViewData["css"] = "faleconosco-style.css";
 }
 <main class="container">
     <div class="content">
         <h2>Envie seu Comentário</h2>
         <form action='@Url.Action("CadastrarComentario","Comentario")' method="POST">
+            @if (@Model.Usuario != null)
+            {
+                <div class="campo">
+                    <input type="text" name="nome" placeholder="Nome" maxlength="50" value="@Model.Usuario.Nome" required>
+                </div>
+                <div class="campo">
+                    <input type="text" name="numero" placeholder="Número de telefone" maxlength="12" value="@Model.Usuario.Telefone" required>
+                </div>
+                <div class="campo">
+                    <input type="email" name="email" maxlength="50" id="email" placeholder="Email" value="@Model.Usuario.Email" required>
+                </div>
+                <div class="campo">
+                    <input type="text" name="empresa" placeholder="Empresa" maxlength="50" value="@Model.Usuario.Empresa.Nome" required>
+                </div>
+                <div class="campo">
+                    <input type="text" name="cnpj" placeholder="CNPJ da empresa" maxlength="40" value="@Model.Usuario.Empresa.Cnpj" required>
+                </div>
+            }else
+            {
+                <div class="campo">
+                    <input type="text" name="nome" placeholder="Nome" maxlength="50" required>
+                </div>
+                <div class="campo">
+                    <input type="text" name="numero" placeholder="Número de telefone" maxlength="12" required>
+                </div>
+                <div class="campo">
+                    <input type="email" name="email" maxlength="50" id="email" placeholder="Email" required>
+                </div>
+                <div class="campo">
+                    <input type="text" name="empresa" placeholder="Empresa" maxlength="50" required>
+                </div>
+                <div class="campo">
+                    <input type="text" name="cnpj" placeholder="CNPJ da empresa" maxlength="40" required>
+                </div>
+            }
             <div class="campo">
                 <input type="text" name="assunto" placeholder="Assunto" maxlength="50" required>
             </div>

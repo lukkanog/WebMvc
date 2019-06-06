@@ -3,32 +3,44 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PontoDigital_final.Models;
+using PontoDigital_final.ViewModels;
 
 namespace PontoDigital_final.Controllers
 {
     public class HomeController : Controller
     {
+        private const string  SESSION_EMAIL = "_EMAIL";
+        private const string SESSION_USUARIO = "_USUARIO";
+    
         public IActionResult Index()
         {
+            // var baseViewModel = new BaseViewModel();
+            // baseViewModel.User = HttpContext.Session.GetString(SESSION_USUARIO);
+            ViewBag.User = HttpContext.Session.GetString(SESSION_USUARIO);
             return View();
         }
         public IActionResult ComoFunciona()
         {
+            ViewBag.User = HttpContext.Session.GetString(SESSION_USUARIO);
             return View();
         }
         public IActionResult Planos()
         {
+            ViewBag.User = HttpContext.Session.GetString(SESSION_USUARIO);
             return View();
         }
 
         public IActionResult Contato()
         {
+            ViewBag.User = HttpContext.Session.GetString(SESSION_USUARIO);
             return View();
         }
         public IActionResult QuemSomos()
         {
+            ViewBag.User = HttpContext.Session.GetString(SESSION_USUARIO);
             return View();
         } 
 

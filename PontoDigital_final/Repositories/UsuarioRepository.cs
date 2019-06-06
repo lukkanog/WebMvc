@@ -7,17 +7,17 @@ namespace PontoDigital_final.Repositories
 {
     public class UsuarioRepository
     {
-        private const string PATH = "Database/usuarios.csv";
+        private const string PATH = "Database/Usuarios.csv";
         public void Inserir(Usuario usuario)
         {
             if (!File.Exists(PATH))
             {
                 usuario.Id = 1;
-            } else 
+            }else 
             {
                 usuario.Id = File.ReadAllLines(PATH).Length;
             }
-            string linha = $"{usuario.Id};{usuario.Nome.ToUpper()};{usuario.Endereco.ToUpper()};{usuario.DataNascimento.ToShortDateString()}{usuario.Email};{usuario.Senha};{usuario.Empresa.Nome};{usuario.Empresa.Cnpj}";
+            string linha = $"{usuario.Id};{usuario.Nome.ToUpper()};{usuario.Endereco.ToUpper()};{usuario.Telefone};{usuario.DataNascimento.ToShortDateString()};{usuario.Email};{usuario.Senha};{usuario.Empresa.Nome};{usuario.Empresa.Cnpj}";
             
             StreamWriter sw = new StreamWriter(PATH,true);
             sw.WriteLine(linha);
@@ -42,13 +42,14 @@ namespace PontoDigital_final.Repositories
                 usuario.Id = int.Parse(dados[0]);
                 usuario.Nome = dados[1];
                 usuario.Endereco = dados[2];
-                usuario.DataNascimento = DateTime.Parse(dados[3]);
-                usuario.Email =dados[4];
-                usuario.Senha = dados[5];
+                usuario.Telefone = dados[3];
+                usuario.DataNascimento = DateTime.Parse(dados[4]);
+                usuario.Email = dados[5];
+                usuario.Senha = dados[6];
 
                 Empresa empresa = new Empresa();
-                empresa.Nome = dados[6];
-                empresa.Cnpj = dados[7];
+                empresa.Nome = dados[7];
+                empresa.Cnpj = dados[8];
 
                 usuario.Empresa = empresa;
                 listaDeUsuarios.Add(usuario);
@@ -72,6 +73,27 @@ namespace PontoDigital_final.Repositories
                     usuario = item;
                     return usuario;
                 } 
+            }
+            return null;
+        }
+
+        public Usuario ObterUsuario(string email) 
+        {
+            Usuario usuario;
+            var listaDeUsuarios = Listar();
+
+            foreach (var item in listaDeUsuarios) 
+            {
+                if (item == null)
+                {
+                    continue;
+                }
+                
+                if (item.Email.Equals(email)) 
+                {
+                    usuario = item;
+                    return usuario;
+                }
             }
             return null;
         }
