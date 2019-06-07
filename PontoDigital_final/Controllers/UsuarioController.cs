@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PontoDigital_final.Models;
 using PontoDigital_final.Repositories;
+using PontoDigital_final.ViewModels;
 
 namespace PontoDigital_final.Controllers
 {
@@ -105,6 +106,62 @@ namespace PontoDigital_final.Controllers
             HttpContext.Session.Clear();
 
             return RedirectToAction("Index", "Home");
-        }        
-    }/////////////////////////////////////////////////////////*****FIM*****//////////////////////////////////////////////////////////////////\
+        }
+
+        [HttpGet]
+        public IActionResult ExibirPerfil()
+        {
+            UsuarioViewModel usuarioViewModel = new UsuarioViewModel();
+            usuarioViewModel.Usuario = usuarioRepositorio.ObterUsuario(HttpContext.Session.GetString(SESSION_EMAIL));
+            ViewBag.User = HttpContext.Session.GetString(SESSION_USUARIO);
+            return View(usuarioViewModel);
+        }
+
+        [HttpGet]
+        public IActionResult EditarPerfil()
+        {
+            var usuarioViewModel = new UsuarioViewModel();
+            usuarioViewModel.Usuario = usuarioRepositorio.ObterUsuario(HttpContext.Session.GetString(SESSION_EMAIL));
+            ViewBag.User = HttpContext.Session.GetString(SESSION_USUARIO);
+            return View(usuarioViewModel);
+        }   
+        
+
+        [HttpPost]
+        public IActionResult EditarPerfil(IFormCollection form)
+        {
+            Usuario usuarioAntigo = usuarioRepositorio.ObterUsuario(HttpContext.Session.GetString(SESSION_EMAIL));
+            Usuario usuario = new Usuario();
+
+            usuario.Nome = form["nome"];
+            usuario.Telefone = form["telefone"];
+            usuario.Email = form["email"];
+            usuario.Endereco = form["endereco"];
+
+            if (string.IsNullOrEmpty(form["data-nascimento"]))
+            {
+                usuario.DataNascimento = usuarioAntigo.DataNascimento;
+            } else
+            {
+                usuario.DataNascimento = DateTime.Parse(form["data-nascimento"]);
+            }
+            
+            Empresa empresa = new Empresa();
+            empresa.Nome = form["empresa"];
+            empresa.Cnpj = form["cnpj"];
+
+            usuario.Empresa = empresa;
+
+            usuarioRepositorio.EditarUsuario(usuarioAntigo,usuario);
+            // return RedirectToAction("ExibirPerfil","Usuario");
+            ViewBag.User = HttpContext.Session.GetString(SESSION_USUARIO);
+            return RedirectToAction("ExibirPerfil","Usuario");
+        }
+
+
+
+
+
+
+    }/////////////////////////////////////////////////////////*****FIM*****////////////////////////////////////////////////////////////////////////////
 }

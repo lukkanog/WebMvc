@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PontoDigital_final.Models;
+using PontoDigital_final.Repositories;
 using PontoDigital_final.ViewModels;
 
 namespace PontoDigital_final.Controllers
@@ -14,6 +15,7 @@ namespace PontoDigital_final.Controllers
     {
         private const string  SESSION_EMAIL = "_EMAIL";
         private const string SESSION_USUARIO = "_USUARIO";
+        UsuarioRepository usuarioRepositorio = new UsuarioRepository();
     
         public IActionResult Index()
         {

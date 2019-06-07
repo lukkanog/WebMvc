@@ -65,7 +65,7 @@ using PontoDigital_final.Models;
             WriteLiteral("<main class=\"container\">\r\n    <div class=\"content\">\r\n        <h2>Envie seu Comentário</h2>\r\n        ");
             EndContext();
             BeginContext(279, 2437, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2cbcd9f9a1fe480fb475e3f6577fff5d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a1f34b4518d42fa8567b7d7ff463ed2", async() => {
                 BeginContext(356, 2, true);
                 WriteLiteral("\r\n");
                 EndContext();

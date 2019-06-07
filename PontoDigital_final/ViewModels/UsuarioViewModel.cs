@@ -2,8 +2,8 @@ using PontoDigital_final.Models;
 
 namespace PontoDigital_final.ViewModels
 {
-    public class BaseViewModel
+    public class UsuarioViewModel
     {
-        public Usuario User {get;set;}
+        public Usuario Usuario {get;set;}
     }
 }

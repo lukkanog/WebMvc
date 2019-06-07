@@ -35,3 +35,6 @@ C:\Users\46735197879\Desktop\lucas\WebMvc\PontoDigital_final\obj\Debug\netcoreap
 C:\Users\46735197879\Desktop\lucas\WebMvc\PontoDigital_final\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Login.g.cshtml.cs
 C:\Users\46735197879\Desktop\lucas\WebMvc\PontoDigital_final\obj\Debug\netcoreapp2.1\Razor\Views\Comentario\CadastrarComentario.g.cshtml.cs
 C:\Users\46735197879\Desktop\lucas\WebMvc\PontoDigital_final\obj\Debug\netcoreapp2.1\Razor\Views\Comentario\Index.g.cshtml.cs
+C:\Users\46735197879\Desktop\lucas\WebMvc\PontoDigital_final\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\ExibirPerfil.g.cshtml.cs
+C:\Users\46735197879\Desktop\lucas\WebMvc\PontoDigital_final\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\EditarPerfil.g.cshtml.cs
+C:\Users\46735197879\Desktop\lucas\WebMvc\PontoDigital_final\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Erro.g.cshtml.cs

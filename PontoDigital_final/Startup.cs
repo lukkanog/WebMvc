@@ -36,7 +36,7 @@ namespace PontoDigital_final
             services.AddSession(options => 
             {
                 options.Cookie.Name=".PontoDigital_final.Session";
-                options.IdleTimeout = TimeSpan.FromMinutes(1);
+                // options.IdleTimeout = TimeSpan.FromMinutes(1);             *************************************************************************
                 options.Cookie.IsEssential = true;
             }
             );

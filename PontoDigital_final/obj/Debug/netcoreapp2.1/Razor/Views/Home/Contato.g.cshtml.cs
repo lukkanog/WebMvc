@@ -66,7 +66,7 @@ using PontoDigital_final.Models;
             WriteLiteral("<main class=\"container\">\r\n    <div class=\"content\">\r\n        <h2>Contato</h2>\r\n        <div class=\"flex\">\r\n            <div class=\"textos\">\r\n                <h3>Agora Vai</h3>\r\n                <div>\r\n                    ");
             EndContext();
             BeginContext(323, 48, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "b99a0e17266043feb6064159ac6561ee", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "502d716bf95d4b2884761f553b71e99a", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -85,7 +85,7 @@ using PontoDigital_final.Models;
             WriteLiteral("\r\n                    <p>pontodigital@agoravai.com</p>\r\n                </div>\r\n                <div>\r\n                    ");
             EndContext();
             BeginContext(494, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "b0e858da96b04c24a377732ad2ddeb99", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cedc930ba01e43369d632a777fb6a718", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -104,7 +104,7 @@ using PontoDigital_final.Models;
             WriteLiteral("\r\n                    <p>+55 11 0000-0000</p>\r\n                </div>\r\n                <div>\r\n                    ");
             EndContext();
             BeginContext(662, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "37a986e252c3485faefaf9deaeb691da", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "52743bc48264497db37b5d4808101a88", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

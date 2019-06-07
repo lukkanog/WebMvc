@@ -10,12 +10,14 @@ namespace PontoDigital_final.Repositories
         private const string PATH = "Database/Usuarios.csv";
         public void Inserir(Usuario usuario)
         {
-            if (!File.Exists(PATH))
+            int quantLinhas = File.ReadAllLines(PATH).Length;
+
+            if (!File.Exists(PATH) || quantLinhas < 1 )
             {
                 usuario.Id = 1;
             }else 
             {
-                usuario.Id = File.ReadAllLines(PATH).Length;
+                usuario.Id = quantLinhas + 1;
             }
             string linha = $"{usuario.Id};{usuario.Nome.ToUpper()};{usuario.Endereco.ToUpper()};{usuario.Telefone};{usuario.DataNascimento.ToShortDateString()};{usuario.Email};{usuario.Senha};{usuario.Empresa.Nome};{usuario.Empresa.Cnpj}";
             
@@ -97,5 +99,48 @@ namespace PontoDigital_final.Repositories
             }
             return null;
         }
-    }
+
+        public Usuario ObterUsuario(int id) 
+        {
+            Usuario usuario;
+            var listaDeUsuarios = Listar();
+
+            foreach (var item in listaDeUsuarios) 
+            {
+                if (item == null)
+                {
+                    continue;
+                }
+                
+                if (item.Id.Equals(id)) 
+                {
+                    usuario = item;
+                    return usuario;
+                }
+            }
+            return null;
+        }
+
+        public void EditarUsuario(Usuario usuarioAntigo, Usuario usuario)
+        {
+            usuario.Id = usuarioAntigo.Id;
+            usuario.Email = usuarioAntigo.Email;
+            usuario.Senha = usuarioAntigo.Senha;
+
+
+            string[] linhas = File.ReadAllLines(PATH);
+
+            for (int i=0; i < linhas.Length; i++)
+            {
+                string[] linha = linhas[i].Split(";");
+
+                if (usuario.Id.ToString().Equals(linha[0]))
+                {
+                    linhas[i] = $"{usuario.Id};{usuario.Nome.ToUpper()};{usuario.Endereco.ToUpper()};{usuario.Telefone};{usuario.DataNascimento.ToShortDateString()};{usuario.Email};{usuario.Senha};{usuario.Empresa.Nome};{usuario.Empresa.Cnpj}";
+                    break;
+                }
+            }
+            File.WriteAllLines(PATH,linhas);
+        }
+    }/////////////////////////////////////////////////////////////********FIM *************////////////////////////\/////////////////////////////////////
 }
