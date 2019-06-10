@@ -13,6 +13,7 @@ namespace PontoDigital_final.Controllers
         private const string  SESSION_EMAIL = "_EMAIL";
         private const string SESSION_USUARIO = "_USUARIO";
         UsuarioRepository usuarioRepositorio = new UsuarioRepository();
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -22,17 +23,15 @@ namespace PontoDigital_final.Controllers
         [HttpPost]
         public IActionResult CadastrarUsuario(IFormCollection form)
         {
-            // Usuario user = new Usuario(
-            //     nome: user.Nome,
-            //     email: user.Email,
-            //     dataNascimento: user.DataNascimento,
-            //     senha: user.Senha
-            // );
 
             if (!form["senha"].Equals(form["confirmarsenha"]))
             {
-                TempData["Mensagem"] = "Por favor, confirme sua senha corretamente.";
-                return RedirectToAction("Index","Usuario");
+                // TempData["erro"] = "Por favor, confirme sua senha corretamente.";
+                ErroViewModel erroViewModel = new ErroViewModel();
+                erroViewModel.Mensagem = "Por favor, confirme sua senha corretamente.";
+                erroViewModel.LinkVoltar = "/Usuario/Index";
+                return View("Erro",erroViewModel);
+
             } else
             {
                 Usuario usuario = new Usuario();
@@ -50,7 +49,6 @@ namespace PontoDigital_final.Controllers
 
                 usuario.Empresa = empresa;
 
-                usuarioRepositorio.Inserir(usuario);
                 
                 //FOTO
                 // var fotinha = form["foto"];
@@ -69,9 +67,25 @@ namespace PontoDigital_final.Controllers
 
                 //     usuario.UrlFoto = "/uploads/imgs/"+NomeArquivo;
                 // }                                                            *****ARRUMA ESSA PORRA AQUI VAI TOMAR NO CU PQP**** 
+                
+                
+                bool emailJaExiste = usuarioRepositorio.VerificarEmailExistente(usuario.Email);
+
+                if (!emailJaExiste)
+                {
+                    usuarioRepositorio.Inserir(usuario);
+                    return RedirectToAction ("Index","Home");
+                } else
+                {
+                    ErroViewModel erroViewModel = new ErroViewModel();
+                    erroViewModel.Mensagem = "Esse email já está sendo utilizado.";
+                    erroViewModel.LinkVoltar = "/Usuario/Index/";
+                    // TempData["erro"] = "Esse email já está sendo utilizado.";
+                    // TempData["voltar"] = "";
+                    return View("Erro",erroViewModel);
+                }
 
             }
-            return RedirectToAction ("Index","Home");
         }
 
         [HttpGet]
@@ -87,15 +101,21 @@ namespace PontoDigital_final.Controllers
             var senha = form["senha"];
 
             var usuario = usuarioRepositorio.TentarLogin(email,senha);
-            string[] usuarioNomes = usuario.Nome.Split(" ");
-            string primeiroNome = usuarioNomes[0];
 
             if (usuario != null)
             {
+                string[] usuarioNomes = usuario.Nome.Split(" ");
+                string primeiroNome = usuarioNomes[0];
                 HttpContext.Session.SetString(SESSION_EMAIL, email);
                 HttpContext.Session.SetString(SESSION_USUARIO, primeiroNome);
+                return RedirectToAction("Index","Home");
+            } else {
+                // TempData["erro"] = "Email ou senha inválidos";
+                ErroViewModel erroViewModel = new ErroViewModel();
+                erroViewModel.Mensagem =  "Email ou senha inválidos";
+                erroViewModel.LinkVoltar = "/Usuario/Login/";
+                return View("Erro",erroViewModel);
             }
-            return RedirectToAction("Index","Home");
         }
 
         [HttpGet]
@@ -157,6 +177,16 @@ namespace PontoDigital_final.Controllers
             ViewBag.User = HttpContext.Session.GetString(SESSION_USUARIO);
             return RedirectToAction("ExibirPerfil","Usuario");
         }
+
+        public IActionResult Erro()
+        {
+            // ErroViewModel evm = new ErroViewModel();
+            // var mensagem = TempData["ErroMensagem"];
+            // evm.Mensagem = (string)mensagem;
+            // return View(evm);
+            // TempData.Keep("erro");
+            return View();
+        } 
 
 
 

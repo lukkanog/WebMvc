@@ -44,7 +44,9 @@ namespace PontoDigital_final.Controllers
         {
             ViewBag.User = HttpContext.Session.GetString(SESSION_USUARIO);
             return View();
-        } 
+        }
+
+
 
         // public IActionResult About()
         // {

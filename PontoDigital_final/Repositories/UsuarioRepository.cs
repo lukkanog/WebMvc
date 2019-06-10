@@ -142,5 +142,20 @@ namespace PontoDigital_final.Repositories
             }
             File.WriteAllLines(PATH,linhas);
         }
+
+        public bool VerificarEmailExistente(string email)
+        {
+            var listaDeUsuarios = Listar();
+
+            foreach (var item in listaDeUsuarios)
+            {
+
+                if (item!= null && item.Email.Equals(email))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }/////////////////////////////////////////////////////////////********FIM *************////////////////////////\/////////////////////////////////////
 }

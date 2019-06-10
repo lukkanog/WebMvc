@@ -1,3 +1,4 @@
+@model PontoDigital_final.ViewModels.ErroViewModel
 @{
     ViewData["Mensagem"] = "Faça seu cadastro";
     ViewData["Title"] = "Cadastro | Ponto Digital";
@@ -6,6 +7,7 @@
 <main class="container">
     <div class="content">
         <h2>@ViewData["Mensagem"]</h2>
+        
         <form action='@Url.Action("CadastrarUsuario","Usuario")' method="POST">
             <div class="campo">
                 <input type="text" name="nome" placeholder="Nome" maxlength="50" required>
